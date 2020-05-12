@@ -1,0 +1,101 @@
+<div class="banner">
+    <div class="logo">
+        <img src="../images/emergency.png">
+        <p style="position: absolute; transform: translate(28%,-135%); font-weight: bolder;">BloodDonate.com</p>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="/user/dashboard">Home</a></li>
+            <li><a href="/user/donateblood">Donate Blood</a></li>
+            <li><a href="/user/editprofile">Edit Profile</a></li>
+            <li><a href="/user/contactus">Contact Us</a></li>
+            <li><a href="/user/logout">Logout</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container login-form1" style="height: 400px; margin-top: 67px;">
+    <form action="/user/donateblood" method="POST">
+    <h3 style="text-align: center; color: dodgerblue;">Donate Blood</h3>
+    <% if (success_msg != '') {%>
+        <div class="alert alert-success alert-dismissible fade show " role="alert">
+          <%=success_msg%>
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% } %>
+      
+    <% if (typeof errors != 'undefined') {%>
+        <% errors.forEach(function(error) { %>
+          <div class="alert alert-warning alert-dismissible fade show " role="alert">
+            <%=error.msg%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% }); %>
+        <% } %>
+    <div class="container">
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Your Email" name="email"
+        value="<%= typeof name != 'undefined' ? email : '' %>"
+        >
+
+        <label for="date"><b>Date</b></label>
+        <input type="date" placeholder="Donation Date" name="date"
+        value="<%= typeof name != 'undefined' ? date : '' %>"
+        >
+
+        <label for="bloodgroup"><b>Blood Group</b></label>
+        <input type="text" placeholder="Your Bloodgroup" name="bloodgroup"
+        value="<%= typeof name != 'undefined' ? bloodgroup : '' %>"
+        >
+
+        <input type="submit" value="Donate Blood">
+    </div>
+    </form>
+</div>
+
+
+<div class="footer">
+    <div class="footer-left">
+        <div>
+        <h6>About us</h6>
+        <p>We are fortunate to be leading a healthy life,
+           and our blood is constantly regenerating. By 
+           donating blood, we are showing our concern 
+           for the welfare of others.We are helping 
+           to build a healthier and safer environment
+           for all. 
+        </p>
+    </div>
+    </div>
+    <div class="footer-center">
+        <div class="footer-nav">
+            <ul>
+                <li><a href="/user/dashboard">Home</a></li>
+                <li><a href="/user/donateblood">Donate Blood</a></li>
+                <li><a href="/user/editprofile">Edit Profile</a></li>
+                <li><a href="/user/contactus">Contact Us</a></li>
+                <li><a href="/user/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="footer-nav">
+            <ul>
+                <li><a href="">Pictures</a></li>
+                <li><a href="">Carrer</a></li>
+                <li><a href="">Donation Camp</a></li>
+                <li><a href="">Meet Our Team</a></li>
+                <li><a href="">Chat With Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-right">
+        <div>
+            <h4>Enter Your Email</h4>
+            <input type="email" placeholder="Enter Email">
+            <input type="submit" value="Submit Email">
+        </div>
+</div>

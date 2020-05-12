@@ -1,0 +1,77 @@
+<div class="container login-form1">
+    <form action="/user/register" method="POST">
+    
+    <div class="img-container">
+        <img src="../images/social.png" alt="Userimage">
+    </div>
+    <h3 style="text-align: center; color: dodgerblue;">Register</h3>
+    <% if (typeof errors != 'undefined') {%>
+        <% errors.forEach(function(error) { %>
+          <div class="alert alert-warning alert-dismissible fade show " role="alert">
+            <%=error.msg%>
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% }); %>
+        <% } %>
+    <div class="container">
+        <label for="username"><b>Name</b></label>
+        <input type="text" placeholder="Enter Your Name" name="username"
+        value="<%= typeof name != 'undefined' ? username : '' %>"
+        >
+
+        <label for="fathername"><b>Father Name</b></label>
+        <input type="text" placeholder="Father Name" name="fathername"
+        value="<%= typeof name != 'undefined' ? fathername : '' %>"
+        >
+
+        <label for="city"><b>City</b></label>
+        <input type="text" placeholder="City Name" name="city"
+        value="<%= typeof name != 'undefined' ? city : '' %>"
+        >
+
+        <label for="state"><b>State</b></label>
+        <input type="text" placeholder="State Name" name="state"
+        value="<%= typeof name != 'undefined' ? state : '' %>"
+        >
+
+        <label for="pincode"><b>Pincode</b></label>
+        <input type="number" placeholder="State Pincode" name="pincode"
+        value="<%= typeof name != 'undefined' ? pincode : '' %>"
+        >
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email"
+        value="<%= typeof name != 'undefined' ? email : '' %>"
+        >
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Password" name="password"
+        value="<%= typeof name != 'undefined' ? password : '' %>"
+        >
+
+        <label for="repassword"><b>ReType Password</b></label>
+        <input type="password" placeholder="ReType Password" name="repassword"
+        value="<%= typeof name != 'undefined' ? repassword : '' %>"
+        >
+
+        <label for="bloodtype"><b>BloodType</b></label>
+        <select name="bloodtype" value="<%= typeof name != 'undefined' ? bloodtype : '' %>">
+            <option value="0" name="" selected>Select Blood Type</option>
+            <option value="A+" >A+</option>
+            <option value="A-" >A-</option>
+            <option value="B+" >B+</option>
+            <option value="B-" >B-</option>
+            <option value="AB+" >AB+</option>
+            <option value="AB-" >AB-</option>
+            <option value="O+" >O+</option>
+            <option value="O-" >O-</option>
+        </select>
+
+        <input type="submit" value="Register">
+        <span>Click here?<a href="/user/login" style="color: dodgerblue;"><b>Login</b></a></span>
+    </div>
+    </form>
+</div> 
+  
